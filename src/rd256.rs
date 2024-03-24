@@ -140,6 +140,11 @@ impl RD256 {
         return base;
 
     }
+
+    pub fn div_mod(&self, b: &RD256, p: &RD256) -> RD256 {
+        assert!(p.v - 2 > U256::from_big_endian(&[0]));
+        return self.mul_mod(&b.exp_mod(&RD256{ v: p.v - 2 }, p), p);
+    }
 } 
 
 impl PartialEq for RD256 {
@@ -174,10 +179,10 @@ mod tests {
     #[test]
     fn test_mul_mod() {
         let a = RD256::from_str("0x2").unwrap();
-        let b = RD256::from_str("0x3").unwrap();
+        let b = RD256::from_str("0x8").unwrap();
         let p = RD256::from_str("0x7").unwrap();
         let c = a.mul_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x6").unwrap());
+        assert_eq!(c.v, U256::from_str("0x2").unwrap());
     }
 
     #[test]
@@ -187,5 +192,14 @@ mod tests {
         let p = RD256::from_str("0x7").unwrap();
         let c = a.exp_mod(&b, &p);
         assert_eq!(c.v, U256::from_str("0x1").unwrap());
+    }
+
+    #[test]
+    fn test_div_mod() {
+        let a = RD256::from_str("0x2e").unwrap();
+        let b = RD256::from_str("0xa").unwrap();
+        let p = RD256::from_str("0xb").unwrap();
+        let c = a.div_mod(&b, &p);
+        assert_eq!(c.v, U256::from_str("0x9").unwrap());
     }
 }

@@ -154,52 +154,95 @@ impl PartialEq for RD256 {
 }
 
 #[cfg(test)]
-
 mod tests {
-    use super::*;
+    use std::str::FromStr;
+    use crate::rd256::RD256;
 
     #[test]
-    fn test_add_mod() {
-        let a = RD256::from_str("0x1").unwrap();
-        let b = RD256::from_str("0x2").unwrap();
-        let p = RD256::from_str("0x7").unwrap();
-        let c = a.add_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x3").unwrap());
+    fn ru256_addition_case_1() {
+        let a = RD256::from_str("0xBD").unwrap();
+        let b = RD256::from_str("0x2B").unwrap();
+        let p = RD256::from_str("0xB").unwrap();
+
+        let r = a.add_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "0000000000000000000000000000000000000000000000000000000000000001");
     }
 
     #[test]
-    fn test_sub_mod() {
-        let a = RD256::from_str("0x1").unwrap();
-        let b = RD256::from_str("0x2").unwrap();
-        let p = RD256::from_str("0x7").unwrap();
-        let c = a.sub_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x6").unwrap());
+    fn ru256_addition_case_2() {
+        let a = RD256::from_str("0xa167f055ff75c").unwrap();
+        let b = RD256::from_str("0xacc457752e4ed").unwrap();
+        let p = RD256::from_str("0xf9cd").unwrap();
+
+        let r = a.add_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "0000000000000000000000000000000000000000000000000000000000006bb0");
     }
 
     #[test]
-    fn test_mul_mod() {
-        let a = RD256::from_str("0x2").unwrap();
-        let b = RD256::from_str("0x8").unwrap();
-        let p = RD256::from_str("0x7").unwrap();
-        let c = a.mul_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x2").unwrap());
+    fn ru256_addition_case_3() {
+        let a = RD256::from_str("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2E").unwrap();
+        let b = RD256::from_str("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2E").unwrap();
+        let p = RD256::from_str("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F").unwrap();
+
+        let r = a.add_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2d");
     }
 
     #[test]
-    fn test_exp_mod() {
-        let a = RD256::from_str("0x2").unwrap();
-        let b = RD256::from_str("0x3").unwrap();
-        let p = RD256::from_str("0x7").unwrap();
-        let c = a.exp_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x1").unwrap());
+    fn ru256_subtraction_case_1() {
+        let a = RD256::from_str("0x1ce606").unwrap();     // a = 189389.unwrap();
+        let b = RD256::from_str("0xacc12484").unwrap();       // b = 289833894.unwrap();
+        let p = RD256::from_str("0xf3fa3").unwrap();      // p = 99933.unwrap();
+
+        let r = a.sub_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "000000000000000000000000000000000000000000000000000000000009645b");
     }
 
     #[test]
-    fn test_div_mod() {
-        let a = RD256::from_str("0x2e").unwrap();
-        let b = RD256::from_str("0xa").unwrap();
-        let p = RD256::from_str("0xb").unwrap();
-        let c = a.div_mod(&b, &p);
-        assert_eq!(c.v, U256::from_str("0x9").unwrap());
+    fn ru256_subtraction_case_2() {
+        let a = RD256::from_str("0xacc12484").unwrap();       // a = 289833894.unwrap();
+        let b = RD256::from_str("0x1ce606").unwrap();     // b = 189389.unwrap();
+        let p = RD256::from_str("0xf3fa3").unwrap();      // p = 99933.unwrap();
+
+        let r = a.sub_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "000000000000000000000000000000000000000000000000000000000005db48");
+    }
+
+    #[test]
+    fn ru256_multiplication_case() {
+        let a = RD256::from_str("0xa167f055ff75c").unwrap();       // a = 283948457393954.unwrap();
+        let b = RD256::from_str("0xacc457752e4ed").unwrap();     // b = 303934849383754.unwrap();
+        let p = RD256::from_str("0xf9cd").unwrap();      // p = 6394.unwrap();
+
+        let r = a.mul_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "000000000000000000000000000000000000000000000000000000000000e116");
+    }
+
+    #[test]
+    fn ru256_exponentiation_case() {
+        let a = RD256::from_str("0x1ce606").unwrap();       // a = 189389.unwrap();
+        let b = RD256::from_str("0xacc12484").unwrap();     // b = 289833894.unwrap();
+        let p = RD256::from_str("0xf3fa3").unwrap();      // p = 99933.unwrap();
+
+        let r = a.exp_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "000000000000000000000000000000000000000000000000000000000002a0fd");
+    }
+
+    #[test]
+    fn ru256_division_case() {
+        let a = RD256::from_str("0x1ce606").unwrap();       // a = 189389.unwrap();
+        let b = RD256::from_str("0xacc12484").unwrap();     // b = 289833894.unwrap();
+        let p = RD256::from_str("0xf3fa3").unwrap();      // p = 99933.unwrap();
+
+        let r = a.div_mod(&b, &p);
+
+        assert_eq!(r.to_string(), "0000000000000000000000000000000000000000000000000000000000061f57");
     }
 }

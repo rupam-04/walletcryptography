@@ -17,7 +17,7 @@ impl Point {
         };
     }
     pub fn to_hex_string(&self) -> String {
-        return format!("{} {}", self.x.to_string(), self.y.to_string());
+        return format!("04{}{}", self.x.to_string(), self.y.to_string());
     }
     pub fn is_zero_point(&self) -> bool {
         return self.x == RD256::from_str("0x0").unwrap() && self.y == RD256::from_str("0x0").unwrap();

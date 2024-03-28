@@ -1,0 +1,11 @@
+C:\Users\rpmde\Desktop\walletcryptography\target\release\deps\libbyte_tools-c4fb2e28c64a8ea7.rmeta: C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\lib.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_slice.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_slice.rs
+
+C:\Users\rpmde\Desktop\walletcryptography\target\release\deps\libbyte_tools-c4fb2e28c64a8ea7.rlib: C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\lib.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_slice.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_slice.rs
+
+C:\Users\rpmde\Desktop\walletcryptography\target\release\deps\byte_tools-c4fb2e28c64a8ea7.d: C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\lib.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_single.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_slice.rs C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_slice.rs
+
+C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\lib.rs:
+C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_single.rs:
+C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_single.rs:
+C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\read_slice.rs:
+C:\Users\rpmde\.cargo\registry\src\index.crates.io-6f17d22bba15001f\byte-tools-0.2.0\src\write_slice.rs:

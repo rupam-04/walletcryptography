@@ -16,7 +16,6 @@ fn ecc() {
 
     let pub_key1: Point = SECP256K1::pr_to_pub(&RD256::from_str(&pr_n).unwrap());
     let pub_key_str1 = pub_key1.to_hex_string();
-    //a77735fd2c25c16224ff4c707624fbfcf03b478c4410f05465f153c8f622e065 f6658cdbd29ea16cc832103b2667e9679a29f85a28d7dee71e4726cb6c0e2296
 
     let secp = Secp256k1::new();
     let pr_key = SecretKey::from_str(&pr_n).expect("private-key");

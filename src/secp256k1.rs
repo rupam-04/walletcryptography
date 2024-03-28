@@ -148,7 +148,7 @@ mod tests {
         );
         let pt3 = SECP256K1::add_points(&pt1, &pt2);
 
-        assert_eq!(pt3.to_hex_string(), "f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9 388f7b0f632de8140fe337e62a37f3566500a99934c2231b6cb9fd7584b8e672");
+        assert_eq!(pt3.to_hex_string(), "04f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9388f7b0f632de8140fe337e62a37f3566500a99934c2231b6cb9fd7584b8e672");
     }
 
     #[test]
@@ -161,6 +161,6 @@ mod tests {
         let pt2 = SECP256K1::double_point(&pt1);
         let pt3 = SECP256K1::double_point(&pt2);
 
-        assert_eq!(pt3.to_hex_string(), "e493dbf1c10d80f3581e4904930b1404cc6c13900ee0758474fa94abe8c4cd13 51ed993ea0d455b75642e2098ea51448d967ae33bfbdfe40cfe97bdc47739922");
+        assert_eq!(pt3.to_hex_string(), "04e493dbf1c10d80f3581e4904930b1404cc6c13900ee0758474fa94abe8c4cd1351ed993ea0d455b75642e2098ea51448d967ae33bfbdfe40cfe97bdc47739922");
     }
 }
